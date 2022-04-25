@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+h1{
+	color: green;
+	margin:20px;
+}
+*{
+	width:800px;
+}
+
+table{
+	margin:20px;
+}
