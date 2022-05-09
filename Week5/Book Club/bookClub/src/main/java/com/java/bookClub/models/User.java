@@ -60,9 +60,11 @@ public class User {
 
 
 
+
 	public Long getId() {
 		return id;
 	}
+
 
 
 
@@ -74,9 +76,11 @@ public class User {
 
 
 
+
 	public String getName() {
 		return name;
 	}
+
 
 
 
@@ -88,9 +92,11 @@ public class User {
 
 
 
+
 	public String getEmail() {
 		return email;
 	}
+
 
 
 
@@ -102,9 +108,11 @@ public class User {
 
 
 
+
 	public String getPassword() {
 		return password;
 	}
+
 
 
 
@@ -116,9 +124,11 @@ public class User {
 
 
 
+
 	public String getConfirm() {
 		return confirm;
 	}
+
 
 
 
@@ -130,9 +140,11 @@ public class User {
 
 
 
+
 	public boolean isAdmin() {
 		return isAdmin;
 	}
+
 
 
 
@@ -144,9 +156,11 @@ public class User {
 
 
 
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+
 
 
 
@@ -158,9 +172,11 @@ public class User {
 
 
 
+
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+
 
 
 
@@ -172,6 +188,7 @@ public class User {
 
 
 
+
 	public List<Book> getBooks() {
 		return books;
 	}
@@ -179,9 +196,11 @@ public class User {
 
 
 
+
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
+
 
 
 

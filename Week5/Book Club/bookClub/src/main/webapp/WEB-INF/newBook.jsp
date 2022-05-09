@@ -23,21 +23,21 @@
 				<td>Title</td>
 				<td>
 					<form:errors path="title"/>
-					<form:input class form-control type="text" path="title"/>
+					<form:input class= "form-control" type="text" path="title"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Author</td>
 				<td>
 					<form:errors path="author" />
-					<form:input class form-control type="text" path="author"/>
+					<form:input class= "form-control" type="text" path="author"/>
 				</td>
 			</tr>
 			<tr>
 				<td>My Thoughts</td>
 				<td>
 					<form:errors path="discription" />
-					<form:input path="discrption"/>
+					<form:input path="discription"/>
 				</td>
 			</tr>
 			<tr>

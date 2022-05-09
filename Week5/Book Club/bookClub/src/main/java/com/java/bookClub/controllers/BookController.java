@@ -22,7 +22,10 @@ public class BookController {
 	private userBookService uBService;
 
 	@GetMapping("/books")
-	public String bookHome(Model bookModel, HttpSession session) {
+	public String bookHome(
+			Model bookModel,
+			HttpSession session)
+	{
 		if(session.getAttribute("userId")==null) {
 			return "redirect:/";
 		}
@@ -38,17 +41,24 @@ public class BookController {
 	}
 	
 	@GetMapping("/books/add")
-	public String addBookPage(Model model, HttpSession session, @ModelAttribute("newBook") Book book) {
+	public String addBookPage(
+			Model model,
+			HttpSession session,
+			@ModelAttribute("newBook") Book book
+			)
+	{
 		if(session.getAttribute("userId")==null) {
 			return "redirect:/";
 		}
-		User user= uBService.findById((Long)session.getAttribute("userID"));
-		model.addAttribute("user", user);
+		model.addAttribute("user", uBService.findById((Long)session.getAttribute("userId")));
 		return "newBook.jsp";
 	}
 	
 	@PostMapping("/add")
-	public String addBook(@Valid @ModelAttribute("newBook") Book book, BindingResult result) {
+	public String addBook(
+			@Valid @ModelAttribute("newBook") Book book,
+			BindingResult result) 
+	{
 		if (result.hasErrors()) {
 			return "newBook.jsp";
 		}
@@ -57,7 +67,11 @@ public class BookController {
 	}
 	
 	@GetMapping("/books/{id}")
-	public String viewBook(Model model, @PathVariable("id") Long id, HttpSession session) {
+	public String viewBook(
+			Model model,
+			@PathVariable("id") Long id,
+			HttpSession session)
+	{
 		if(session.getAttribute("userId")==null) {
 			return "redirect:/";
 		}

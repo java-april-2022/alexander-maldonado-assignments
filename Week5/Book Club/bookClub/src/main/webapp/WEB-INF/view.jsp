@@ -23,6 +23,7 @@
 		<p><c:out value="${book.discription}"></c:out></p>
 		<hr>
 	</div>
+	<button><a href="/books">back to shelves</a></button>
 	<a href="/books/${book.id}/edit"></a>
 </body>
 </html>
