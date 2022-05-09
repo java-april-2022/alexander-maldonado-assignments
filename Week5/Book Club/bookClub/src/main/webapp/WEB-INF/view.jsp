@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <title>View Book</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
@@ -14,11 +15,14 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1><c:forEach var="book" items="${user.books}">${book.title}</c:forEach></h1>
-	<h3>read by</h3>
-	<h3>Here are 's thoughts:</h3>
-	<hr>
-	<p></p>
-	<hr>
+	<h1><c:out value="${book.title}"></c:out></h1>
+	<h3>read by <c:out value="${book.author}"></c:out></h3>
+	<h3>Here are <c:out value="${book.user.name}}"></c:out>'s thoughts:</h3>
+	<div>
+		<hr>
+		<p><c:out value="${book.discription}"></c:out></p>
+		<hr>
+	</div>
+	<a href="/books/${book.id}/edit"></a>
 </body>
 </html>

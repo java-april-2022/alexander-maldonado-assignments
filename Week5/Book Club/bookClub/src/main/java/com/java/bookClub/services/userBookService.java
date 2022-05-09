@@ -68,7 +68,7 @@ public class userBookService {
     	Optional<User> userFind = uRepo.findByEmail(newLogin.getEmail());
     	
     	if(!userFind.isPresent()) {
-    		result.rejectValue("emaiil", "Matches", "Please Sign Up");
+    		result.rejectValue("email", "Matches", "Please Sign Up");
     		return null;
     	}
     	

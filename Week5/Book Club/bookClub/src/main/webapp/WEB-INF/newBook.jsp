@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 <body>
 	<h1>Add a Book to Your Shelf</h1>
 	<a href="/books">back to shelves</a>
-	<form:form action="/books/add" method="post" modelAttribute="newBook">
+	<form:form action="/add" method="post" modelAttribute="newBook">
 		<table>
 			<tr>
 				<td>Title</td>

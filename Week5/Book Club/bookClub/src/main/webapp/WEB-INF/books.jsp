@@ -20,7 +20,7 @@
 	</div>
 	<div>
 	<a href="/logout">Logout</a>
-	<a href="/books/new">Add to my shelf</a>
+	<a href="/books/add"> Add to my shelf</a>
 	</div>
 	<table class="table table-success table-striped">
 		<tr>
@@ -29,12 +29,12 @@
 			<th>Author Name</th>
 			<th>Posted By</th>
 		</tr>
-		<c:forEach var="book" items="${user.books}">
+		<c:forEach var="book" items="${books}">
 			<tr>
-				<th>${book.id}</th>
-				<th>${book.title}</th>
-				<th>${book.author}</th>
-				<th>?</th>
+				<td>${book.id}</td>
+				<td><a href="books/${book.id}"><c:out value="${book.title}"/></a></td>
+				<td>${book.author}</td>
+				<td>?</td>
 			</tr>
 		</c:forEach>
 	</table>
