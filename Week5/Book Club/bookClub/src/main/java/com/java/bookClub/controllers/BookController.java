@@ -26,7 +26,7 @@ public class BookController {
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.setAttribute("userIId", null);
+		session.setAttribute("userId", null);
 		return "redirect:/";
 	}
 	

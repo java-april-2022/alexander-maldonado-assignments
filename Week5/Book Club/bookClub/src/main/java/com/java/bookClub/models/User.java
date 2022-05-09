@@ -15,7 +15,6 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -27,20 +26,25 @@ public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	@NotBlank(message="Name Can't be Left BLank")
+	
+	@NotEmpty(message="Name Can't be Left BLank")
     @Size(min = 2, max = 20, message="Name must be between 2 and 20 characters")
     private String name;
-	@NotBlank(message="Email Can't be Left Blank")
+	
+	@NotEmpty(message="Email Can't be Left Blank")
     @Email(message="Please enter a valid email")
     private String email;
+	
 	@NotEmpty(message="Password Required")
-    @Size(min=8, max=32, message="Password must be between 8 and 32 charcters")
+    @Size(min=8, message="Password must be at least 8 charcters long")
     private String password;
-    @Transient
+    
+	@Transient
     @NotEmpty(message="Confirm Password can't be left blank")
-    @Size(min=8, max=32, message="Confirm Password must be between 8 and 32 characters")
+    @Size(min=8, message="Password must be at least 8 characters long")
     private String confirm;
-    private boolean isAdmin = false;
+    
+	private boolean isAdmin = false;
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;

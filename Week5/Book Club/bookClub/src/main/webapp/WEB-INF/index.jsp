@@ -38,14 +38,14 @@
 	            <td>Password:</td>
 	            <td>
 	            	<form:errors path="password"/>
-					<form:password class="form-control" type="password" path="password"/>
+					<form:input class="form-control" type="password" path="password"/>
 	            </td>
 	        </tr>
 	        <tr>
 	            <td >Confirm Password:</td>
 	            <td>
 	            	<form:errors path="confirm" />
-					<form:password type="password" class="form-control" path="confirm"/>
+					<form:input type="password" class="form-control" path="confirm"/>
 	            </td>
 	        </tr>
 	        <tr>
@@ -53,30 +53,30 @@
 	        </tr>
 	    </thead>
 	</table>
-</form:form>
-<form:form action="/login" method="post" modelAttribute="newLogin">
-	<h4>Log In</h4>
-	<table>
-	    <thead>
-	        <tr>
-	            <td>Email:</td>
-	            <td>
-	            	<form:errors path="email"/>
-					<form:input class="form-control" path="email"/>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>Password:</td>
-	            <td>
-	            	<form:errors path="password"/>
-					<form:password class="form-control" path="password" type="password"/>
-	            </td>
-	        </tr>
-	        <tr>
-	        	<td><input type="submit" value="Submit"/></td>
-	        </tr>
-	    </thead>
-	</table>
-</form:form>
+	</form:form>
+	<form:form action="/login" method="post" modelAttribute="newLogin">
+		<h4>Log In</h4>
+		<table>
+		    <thead>
+		        <tr>
+		            <td>Email:</td>
+		            <td>
+		            	<form:errors path="email"/>
+						<form:input class="form-control" path="email"/>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td>Password:</td>
+		            <td>
+		            	<form:errors path="password"/>
+						<form:input class="form-control" path="password" type="password"/>
+		            </td>
+		        </tr>
+		        <tr>
+		        	<td><input type="submit" value="Submit"/></td>
+		        </tr>
+		    </thead>
+		</table>
+	</form:form>
 </body>
 </html>

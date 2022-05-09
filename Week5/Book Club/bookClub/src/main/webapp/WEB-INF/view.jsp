@@ -7,36 +7,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome User</title>
+<title>View Book</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/css/main.css"/>
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div>
-	<h1>Welcome,<c:out value="${user.name}"/></h1>
-	<p>Books from everyone's shelves</p>
-	</div>
-	<div>
-	<a href="/logout">Logout</a>
-	<a href="/books/new">Add to my shelf</a>
-	</div>
-	<table class="table table-success table-striped">
-		<tr>
-			<th>ID</th>
-			<th>Title</th>
-			<th>Author Name</th>
-			<th>Posted By</th>
-		</tr>
-		<c:forEach var="book" items="${user.books}">
-			<tr>
-				<th>${book.id}</th>
-				<th>${book.title}</th>
-				<th>${book.author}</th>
-				<th>?</th>
-			</tr>
-		</c:forEach>
-	</table>
+	<h1><c:forEach var="book" items="${user.books}">${book.title}</c:forEach></h1>
+	<h3>read by</h3>
+	<h3>Here are 's thoughts:</h3>
+	<hr>
+	<p></p>
+	<hr>
 </body>
 </html>

@@ -30,12 +30,12 @@ public class HomeController {
 	}
 	 
 	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model, HttpSession session) {
+	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model userModel, HttpSession session) {
 	     
 		User user = uBService.register(newUser, result);
 		
 	    if(result.hasErrors()) {
-	        model.addAttribute("newLogin", new LoginUser());
+	        userModel.addAttribute("newLogin", new LoginUser());
 	        return "index.jsp";
 	    }
 	    
