@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true" %>
@@ -16,7 +17,7 @@
 <body>
 	<h1>Welcome!</h1>
 	<p>Join our growing community.</p>
-<form:form action="/register" method="post" modelAttribute="newUser">
+<form:form action="/register" modelAttribute="newUser"  method="post">
 	<h4>Register</h4>
 	<table>
 	    <thead>
@@ -54,7 +55,7 @@
 	    </thead>
 	</table>
 	</form:form>
-	<form:form action="/login" method="post" modelAttribute="newLogin">
+	<form:form action="/login" modelAttribute="newLogin">
 		<h4>Log In</h4>
 		<table>
 		    <thead>
@@ -62,7 +63,7 @@
 		            <td>Email:</td>
 		            <td>
 		            	<form:errors path="email"/>
-						<form:input class="form-control" path="email"/>
+						<form:input class="form-control" path="email" type ="text"/>
 		            </td>
 		        </tr>
 		        <tr>

@@ -1,16 +1,14 @@
 package com.java.bookClub.models;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 public class LoginUser {
     
-    @NotEmpty(message="Email is required!")
-    @Email(message="Please enter a valid email!")
+    @NotEmpty(message="Email is Required")
+    @Email(message="Please enter a valid email")
     private String email;
     
-    @NotEmpty(message="Password is required!")
-    @Size(min=8, message="Password must be between 8 and 32 characters")
+    @NotEmpty(message="Password is Required")
     private String password;
     
     public LoginUser() {

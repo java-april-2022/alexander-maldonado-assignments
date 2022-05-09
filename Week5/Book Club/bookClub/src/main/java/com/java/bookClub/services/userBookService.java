@@ -25,7 +25,7 @@ public class userBookService {
 		return this.bRepo.findAll();
 	}
 	
-	public Book createBook(Book book) {
+	public Book create(Book book) {
 		return this.bRepo.save(book);
 	}
 	
@@ -38,17 +38,17 @@ public class userBookService {
 	}
 	
 	public User findById(Long id) {
-		Optional<User> user= uRepo.findById(id);
-		if(user.isPresent()) {
-		return user.get();
+		Optional<User> result= uRepo.findById(id);
+		if(result.isPresent()) {
+		return result.get();
 		}
 		return null;
 	}
 	
     public User register(User newUser, BindingResult result) {
-        Optional<User> user = uRepo.findByEmail(newUser.getEmail());
+        Optional<User> userFind = uRepo.findByEmail(newUser.getEmail());
         
-        if(user.isPresent()) {
+        if(userFind.isPresent()) {
         	result.rejectValue("email", "Matches", "Unable to Sign up,Please log in");
         }
         
@@ -65,22 +65,29 @@ public class userBookService {
 		return this.uRepo.save(newUser);
     }
     public User login(LoginUser newLogin, BindingResult result) {
-    	Optional<User> user = uRepo.findByEmail(newLogin.getEmail());
+    	Optional<User> userFind = uRepo.findByEmail(newLogin.getEmail());
     	
-    	if(!user.isPresent()) {
+    	if(!userFind.isPresent()) {
     		result.rejectValue("emaiil", "Matches", "Please Sign Up");
     		return null;
     	}
     	
-    	User userActive = user.get();
+    	User user = userFind.get();
     	
-    	if(!BCrypt.checkpw(newLogin.getPassword(), userActive.getPassword())) {
+    	if(!BCrypt.checkpw(newLogin.getPassword(), user.getPassword())) {
     		result.rejectValue("password", "Matches", "Invalid Password");
     	}
     	if(result.hasErrors()) {
     		return null;
     	}
     	
-        return userActive;
+        return user;
+    }
+    public User findByEmail(String email) {
+    	Optional<User> userEmail = uRepo.findByEmail(email);
+    	if(userEmail.isPresent()) {
+    		return userEmail.get();
+    	}
+    	return null;
     }
 }

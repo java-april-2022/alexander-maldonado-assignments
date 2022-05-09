@@ -36,12 +36,12 @@ public class User {
     private String email;
 	
 	@NotEmpty(message="Password Required")
-    @Size(min=8, message="Password must be at least 8 charcters long")
+    @Size(min=8, max=120, message="Password must be at least 8 charcters long")
     private String password;
     
 	@Transient
     @NotEmpty(message="Confirm Password can't be left blank")
-    @Size(min=8, message="Password must be at least 8 characters long")
+    @Size(min=8, max=120, message="Password must be at least 8 characters long")
     private String confirm;
     
 	private boolean isAdmin = false;

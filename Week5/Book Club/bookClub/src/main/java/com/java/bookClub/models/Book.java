@@ -44,7 +44,7 @@ public class Book {
     private Date updatedAt;
     
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="userId")
+    @JoinColumn(name="user_id")
     private User user;
     
     public Book() {

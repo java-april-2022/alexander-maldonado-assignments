@@ -15,12 +15,12 @@ public class BookController {
 	private userBookService uBService;
 
 	@GetMapping("/books")
-	public String books(HttpSession session, Model bookModel) {
+	public String bookHome(Model bookModel, HttpSession session) {
 		if(session.getAttribute("userId")==null) {
-			return "redirect:/logoout";
+			return "redirect:/";
 		}
-		Long userId= (Long)session.getAttribute("userId");
-		bookModel.addAttribute("user", uBService.getOneBook(userId));
+		bookModel.addAttribute("books", uBService.allBooks());
+		bookModel.addAttribute("user", uBService.findById((Long)session.getAttribute("userId")));
 		return "books.jsp";
 	}
 	
