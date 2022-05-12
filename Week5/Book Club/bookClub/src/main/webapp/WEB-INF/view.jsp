@@ -17,7 +17,7 @@
 <body>
 	<h1><c:out value="${book.title}"></c:out></h1>
 	<h3>read by <c:out value="${book.author}"></c:out></h3>
-	<h3>Here are <c:out value="${book.user.name}}"></c:out>'s thoughts:</h3>
+	<h3>Here are <c:out value="${book.user.name}"></c:out>'s thoughts:</h3>
 	<div>
 		<hr>
 		<p><c:out value="${book.discription}"></c:out></p>

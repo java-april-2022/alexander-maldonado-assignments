@@ -34,7 +34,7 @@
 				<td>${book.id}</td>
 				<td><a href="books/${book.id}"><c:out value="${book.title}"/></a></td>
 				<td>${book.author}</td>
-				<td>?</td>
+				<td><c:out value="${book.user.name}"/></td>
 			</tr>
 		</c:forEach>
 	</table>

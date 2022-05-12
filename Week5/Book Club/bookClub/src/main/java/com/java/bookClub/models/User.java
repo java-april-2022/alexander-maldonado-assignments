@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -51,6 +53,10 @@ public class User {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
+    @ManyToOne
+    @JoinColumn(name="book_id")
+    private Book book;
+    
     @OneToMany(mappedBy="user",fetch=FetchType.LAZY)
     	private List<Book> books;
     
@@ -61,9 +67,11 @@ public class User {
 
 
 
+
 	public Long getId() {
 		return id;
 	}
+
 
 
 
@@ -77,9 +85,11 @@ public class User {
 
 
 
+
 	public String getName() {
 		return name;
 	}
+
 
 
 
@@ -93,9 +103,11 @@ public class User {
 
 
 
+
 	public String getEmail() {
 		return email;
 	}
+
 
 
 
@@ -109,9 +121,11 @@ public class User {
 
 
 
+
 	public String getPassword() {
 		return password;
 	}
+
 
 
 
@@ -125,9 +139,11 @@ public class User {
 
 
 
+
 	public String getConfirm() {
 		return confirm;
 	}
+
 
 
 
@@ -141,9 +157,11 @@ public class User {
 
 
 
+
 	public boolean isAdmin() {
 		return isAdmin;
 	}
+
 
 
 
@@ -157,9 +175,11 @@ public class User {
 
 
 
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+
 
 
 
@@ -173,9 +193,11 @@ public class User {
 
 
 
+
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+
 
 
 
@@ -189,6 +211,25 @@ public class User {
 
 
 
+
+	public Book getBook() {
+		return book;
+	}
+
+
+
+
+
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+
+
+
+
+
 	public List<Book> getBooks() {
 		return books;
 	}
@@ -197,9 +238,11 @@ public class User {
 
 
 
+
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
+
 
 
 

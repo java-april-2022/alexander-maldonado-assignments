@@ -13,30 +13,32 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.java.bookClub.models.Book;
-import com.java.bookClub.models.User;
-import com.java.bookClub.services.userBookService;
+import com.java.bookClub.services.BookServices;
+import com.java.bookClub.services.UserServices;
 
 @Controller
 public class BookController {
 	@Autowired
-	private userBookService uBService;
+	private BookServices bService;
+	
+	@Autowired UserServices uService;
 
 	@GetMapping("/books")
 	public String bookHome(
 			Model bookModel,
 			HttpSession session)
 	{
-		if(session.getAttribute("userId")==null) {
+		if(session.getAttribute("user_id")==null) {
 			return "redirect:/";
 		}
-		bookModel.addAttribute("books", uBService.allBooks());
-		bookModel.addAttribute("user", uBService.findById((Long)session.getAttribute("userId")));
+		bookModel.addAttribute("books", bService.allBooks());
+		bookModel.addAttribute("user", uService.findById((Long)session.getAttribute("user_id")));
 		return "books.jsp";
 	}
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.setAttribute("userId", null);
+		session.setAttribute("user_id", null);
 		return "redirect:/";
 	}
 	
@@ -47,22 +49,23 @@ public class BookController {
 			@ModelAttribute("newBook") Book book
 			)
 	{
-		if(session.getAttribute("userId")==null) {
+		if(session.getAttribute("user_id")==null) {
 			return "redirect:/";
 		}
-		model.addAttribute("user", uBService.findById((Long)session.getAttribute("userId")));
+		model.addAttribute("user", uService.findById((Long)session.getAttribute("user_id")));
 		return "newBook.jsp";
 	}
 	
 	@PostMapping("/add")
 	public String addBook(
 			@Valid @ModelAttribute("newBook") Book book,
-			BindingResult result) 
+			BindingResult result,
+			Model model) 
 	{
 		if (result.hasErrors()) {
 			return "newBook.jsp";
 		}
-		uBService.create(book);
+		bService.create(book);
 		return "redirect:/books";
 	}
 	
@@ -72,12 +75,12 @@ public class BookController {
 			@PathVariable("id") Long id,
 			HttpSession session)
 	{
-		if(session.getAttribute("userId")==null) {
+		if(session.getAttribute("user_id")==null) {
 			return "redirect:/";
 		}
-		Book book = uBService.getOneBook(id);
+		Book book = bService.getOneBook(id);
 		model.addAttribute("book",book);
-		model.addAttribute("user", uBService.findById((Long)session.getAttribute("userId")));
+		model.addAttribute("user", uService.findById((Long)session.getAttribute("user_id")));
 		return "view.jsp";
 	}
 	

@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.java.bookClub.models.LoginUser;
 import com.java.bookClub.models.User;
-import com.java.bookClub.services.userBookService;
+import com.java.bookClub.services.UserServices;
 
 @Controller
 public class HomeController {
 	@Autowired
-	private userBookService uBService;
+	private UserServices uService;
 	
 	@GetMapping("/")
 	public String index(Model model) {
@@ -32,28 +32,28 @@ public class HomeController {
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model userModel, HttpSession session) {
 	     
-		User user = uBService.register(newUser, result);
+		User user = uService.register(newUser, result);
 		
 	    if(result.hasErrors()) {
 	        userModel.addAttribute("newLogin", new LoginUser());
 	        return "index.jsp";
 	    }
 	    
-	    session.setAttribute("userId", user.getId());
+	    session.setAttribute("user_id", user.getId());
 	 
 	    return "redirect:/books";
 	}
 	@PostMapping("/login")
 	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, BindingResult result, Model model, HttpSession session) {
 	     
-		User user = uBService.login(newLogin, result);
+		User user = uService.login(newLogin, result);
 	 
 	    if(result.hasErrors() || user==null) {
 	        model.addAttribute("newUser", new User());
 	        return "index.jsp";
 	    }
 	     
-	    session.setAttribute("userId", user.getId());
+	    session.setAttribute("user_id", user.getId());
 	 
 	    return "redirect:/books";
 	}

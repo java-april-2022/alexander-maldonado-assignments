@@ -26,7 +26,7 @@ public class Book {
     private Long id;
 	
 	@NotEmpty(message="Book Title Can't be Left BLank")
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 30)
     private String title;
 	
 	@NotEmpty(message="Book Author Can't be Left BLank")
@@ -55,9 +55,11 @@ public class Book {
 
 
 
+
 	public Long getId() {
 		return id;
 	}
+
 
 
 
@@ -71,9 +73,11 @@ public class Book {
 
 
 
+
 	public String getTitle() {
 		return title;
 	}
+
 
 
 
@@ -87,9 +91,11 @@ public class Book {
 
 
 
+
 	public String getAuthor() {
 		return author;
 	}
+
 
 
 
@@ -103,9 +109,11 @@ public class Book {
 
 
 
+
 	public String getDiscription() {
 		return discription;
 	}
+
 
 
 
@@ -119,9 +127,11 @@ public class Book {
 
 
 
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+
 
 
 
@@ -135,9 +145,11 @@ public class Book {
 
 
 
+
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+
 
 
 
@@ -151,6 +163,7 @@ public class Book {
 
 
 
+
 	public User getUser() {
 		return user;
 	}
@@ -159,9 +172,11 @@ public class Book {
 
 
 
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 
 
 
