@@ -12,7 +12,7 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1><c:out value="${dojo.name}"/>Location</h1>
+	<h1><c:out value="${dojo.name}"/> Location</h1>
 	<table class="table table-success table-striped">
 		<tr>
 			<th>First Name</th>

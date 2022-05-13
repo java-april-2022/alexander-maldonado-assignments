@@ -24,15 +24,15 @@
 			</form:select>
 		</p>
         <div class="mb-3">
-            <form:label path="firstName" class="form-label" style="color: white;">First Name</form:label>
+            <form:label path="firstName" class="form-label" >First Name</form:label>
             <form:input path="firstName" type="text" class="form-control" name="firstName" placeholder="First Name"/>
         </div>
         <div class="mb-3">
-            <form:label path="lastName" class="form-label" style="color: white;">Last Name</form:label>
+            <form:label path="lastName" class="form-label" >Last Name</form:label>
             <form:input path="lastName" type="text" class="form-control" name="lastName" placeholder="Last Name"/>
         </div>
         <div class="mb-3">
-            <form:label path="age" class="form-label" style="color: white;">Age</form:label>
+            <form:label path="age" class="form-label" >Age</form:label>
             <form:input path="age" type="number" class="form-control" name="age"/>
         </div>
         	<input type="submit" value="Send">

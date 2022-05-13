@@ -7,14 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.dojoNinjas.models.Dojo;
-import com.java.dojoNinjas.models.Ninja;
 import com.java.dojoNinjas.repositories.DojoRepository;
-import com.java.dojoNinjas.repositories.NinjaRepository;
 
 @Service
-public class NinjaDojoService {
-	@Autowired
-	private NinjaRepository ninjaRepository;
+public class DojoService {
 	@Autowired
 	private DojoRepository dojoRepository;
 	
@@ -26,10 +22,7 @@ public class NinjaDojoService {
     public Dojo createDojo(Dojo d) {
     	return dojoRepository.save(d);
     }
-    // creates a ninja
-    public Ninja createNinja(Ninja n) {
-        return ninjaRepository.save(n);
-    }
+    
     // retrieves a dojo
     public Dojo findDojo(Long id) {
         Optional<Dojo> optionalDojo = dojoRepository.findById(id);

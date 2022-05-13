@@ -10,30 +10,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.dojoNinjas.models.Dojo;
-import com.java.dojoNinjas.services.NinjaDojoService;
+import com.java.dojoNinjas.services.DojoService;
 
 @Controller
-@RequestMapping("/dojo")
 public class DojoController {
 	@Autowired
-	private NinjaDojoService nDService;
+	private DojoService dService;
 	
-	@GetMapping("/new")
+	@GetMapping("/")
+	public String direct() {
+		return "redirect:/dojo/new";
+	}
+	
+	@GetMapping("/dojo/new")
 	public String dojo(@ModelAttribute("dojo") Dojo dojo) {
 		return "dojo.jsp";
 	}
 	
-	@PostMapping("/createDojo")
+	@PostMapping("/dojo/createDojo")
 	public String createDojo(@Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
-		this.nDService.createDojo(dojo);
+		this.dService.createDojo(dojo);
 		return "redirect:/ninja/new";
 	}
-	@GetMapping("/{id}")
+	@GetMapping("/dojo/{id}")
 	public String details(@PathVariable("id")Long id,Model model) {
-		model.addAttribute("dojo", this.nDService.findDojo(id));
+		model.addAttribute("dojo", this.dService.findDojo(id));
 		return "details.jsp";
 	}
 }
