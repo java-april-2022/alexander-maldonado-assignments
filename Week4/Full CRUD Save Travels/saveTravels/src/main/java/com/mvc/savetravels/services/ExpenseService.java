@@ -16,16 +16,16 @@ public class ExpenseService {
 		this.expenseRepo = expenseRepo;
 	}
 	// returns all the expenses
-    public List<Expense> allExpenses() {
+    public List<Expense> all() {
         return expenseRepo.findAll();
     }
     // creates an expense
-    public Expense createBook(Expense e) {
+    public Expense create(Expense e) {
         return expenseRepo.save(e);
     }
     
     //retrieves an expense
-    public Expense findBook(Long id) {
+    public Expense find(Long id) {
         Optional<Expense> optionalExpense = expenseRepo.findById(id);
         if(optionalExpense.isPresent()) {
             return optionalExpense.get();
@@ -33,5 +33,12 @@ public class ExpenseService {
             return null;
         }
     }
-	
+	//deletes an expense
+    public void delete(Long id) {
+    	expenseRepo.deleteById(id);
+    }
+    //updates an expense
+    public Expense update(Expense e) {
+    	return expenseRepo.save(e);
+    }
 }
